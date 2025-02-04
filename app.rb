@@ -51,3 +51,16 @@ get("/payment/results") do
   @payment = num/denom
   erb :payment_results
 end
+
+get("/random/new") do
+  @min = params["min"]&.to_f
+  @max = params["max"]&.to_f
+  erb :random
+end
+
+get("/random/results") do
+  @min = params["min"]&.to_f
+  @max = params["max"]&.to_f
+  @num = rand(@min..@max)
+  erb :random_results
+end
